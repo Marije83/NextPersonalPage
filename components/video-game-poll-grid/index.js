@@ -1,15 +1,20 @@
-import GameItem from "./game-item"
-import { initialGames } from "@/constants/home/games"
-import { useState } from "react"
+import GameItem from "./game-item";
+import { useEffect, useState } from "react"
 
 
 export default function GamePoll () {
     const [title, setTitle] = useState("");
     const [developer, setDeveloper] = useState("");
-    const [games, setGames] = useState(initialGames)
+    const [games, setGames] = useState([]);
     const [mostLikedGameLikes, setMostLikedGameLikes] = useState(0);
     const [mostLikedGameTitle, setMostLikedGameTitle] = useState ("The Last of Us");
     
+    //this function will run once at the start and fetches data from a path, stores it as a json file in data, and then returns it as a response.
+    useEffect(() => {
+        fetch("/api/games")
+            .then(data => data.json())
+            .then(response => setGames(response));
+    }, [])
 
     const handleLike = (details) =>{
         const {title, likes} = details;
