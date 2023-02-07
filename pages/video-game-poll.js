@@ -4,7 +4,7 @@ import GamePoll from "@/components/video-game-poll-grid"
 
 export default function () {
     return(
-        <div>
+        <div className>
             <NavigationBar></NavigationBar>
             
             <Hero name="Video games and other hobbies"></Hero>
