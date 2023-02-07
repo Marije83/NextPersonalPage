@@ -11,6 +11,7 @@ export default function Home() {
       <NavigationBar></NavigationBar>
       
       <div>
+        
         <Hero name="Marije van Hattum"></Hero>
 
         <Bio jobTitle="Junior Software Engineer" message={myBio}></Bio>
