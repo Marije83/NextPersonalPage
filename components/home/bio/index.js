@@ -1,4 +1,3 @@
-import SubHeader from "@/components/shared/subheader"
 import Image from "next/image"
 
 export default function Bio(props) {
