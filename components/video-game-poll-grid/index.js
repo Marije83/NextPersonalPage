@@ -1,6 +1,6 @@
 import GameItem from "./game-item";
 import { useEffect, useState } from "react"
-
+import Image from "next/image";
 
 export default function GamePoll () {
     const [title, setTitle] = useState("");
@@ -38,7 +38,7 @@ export default function GamePoll () {
     const handleAddGame = () =>{
         let game = {
             title: title,
-            picture: <img src='TBC.png' alt="Image to follow" width="150" height ="300"/>,
+            picture: <Image src='TBC.png' alt="Image to follow" />,
             developer: developer
         }
         

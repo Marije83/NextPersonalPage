@@ -1,10 +1,13 @@
 import NavigationBar from "@/components/shared/navigation-bar"
 import Hero from "@/components/shared/hero"
 import GamePoll from "@/components/video-game-poll-grid"
+import Page from "@/components/shared/page"
 
 export default function () {
     return(
-        <div className>
+
+        <Page>
+
             <NavigationBar></NavigationBar>
             
             <Hero name="Video games and other hobbies"></Hero>
@@ -14,6 +17,6 @@ export default function () {
             </p>
 
             <GamePoll></GamePoll>
-        </div>
+        </Page>
     )
 }
