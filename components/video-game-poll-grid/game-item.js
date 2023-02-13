@@ -18,7 +18,7 @@ export default function GameItem ({title, picture, developer, onLike}) {
     return(
         <div>
             <div className = "font-bold">{title}</div>
-            <div className= "grid justify-center h-52 items-center">{picture}</div>
+            <div className= "grid justify-center h-52 items-center"><img src={picture} alt="The Last of Us" width="150" height ="300" /> </div>
             <div className = "italic">{developer}</div>
             <button
                 className= "bg-purple-900 text-white px-3 mt-3 rounded"

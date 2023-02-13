@@ -19,8 +19,7 @@ export default function Home() {
 
           <SkillsGrid></SkillsGrid>
         </div>
-    
-      
+          
     </Page>
     
   )

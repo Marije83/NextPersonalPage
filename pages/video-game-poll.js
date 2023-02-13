@@ -5,7 +5,9 @@ import Page from "@/components/shared/page"
 
 export default function () {
     return(
+
         <Page>
+
             <NavigationBar></NavigationBar>
             
             <Hero name="Video games and other hobbies"></Hero>
