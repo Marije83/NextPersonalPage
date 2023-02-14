@@ -38,25 +38,27 @@ export default function SingleGame(){
     } else {
         return(
             <Page>
-            <Hero name = {game.title}></Hero>
-            <Image 
-                    src = {game.picture} 
-                    width = {250} 
-                    height = {250} 
-                    className = "container mx-auto object-contain h-122 w-64"/>
-            <div className = "text-center italic">{game.developer}</div>
-            <ContentText>
-                    {game.summary}
-            </ContentText>
+                <Hero name = {game.title}></Hero>
+                <Image 
+                        src = {game.picture} 
+                        width = {250} 
+                        height = {250} 
+                        className = "container mx-auto object-contain h-122 w-64"/>
+                <div className = "text-center italic">{game.developer}</div>
+                <ContentText>
+                        {game.summary}
+                </ContentText>
 
-            <Footer 
-                    name1="previous game" 
-                    name2="next game" 
-                    href1 ={`/single-game/${+game.id -1}`}
-                    href2 ={`/single-game/${+game.id +1}`}
-                />
-            
+                <div className = "text-center">
+                    <a href={game.linkToPurchase} target = "_blank">Buy on Amazon</a>
+                </div>
 
+                <Footer 
+                        name1="previous game" 
+                        name2="next game" 
+                        href1 ={`/single-game/${+game.id -1}`}
+                        href2 ={`/single-game/${+game.id +1}`}
+                    />
             </Page>
         )
     }
