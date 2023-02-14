@@ -26,33 +26,38 @@ export default function SingleGame(){
     
     console.log(game);
 
-    if (!game) {
+
+
+    if (gameId < 1){
+        return(
+        <div className = "text-center mt-12">There are no previous items to display. Please click the return button on your browser</div>)
+    } else if (!game) {
         return (
             <div>Loading ...</div>
         )
+    } else {
+        return(
+            <Page>
+            <Hero name = {game.title}></Hero>
+            <Image 
+                    src = {game.picture} 
+                    width = {250} 
+                    height = {250} 
+                    className = "container mx-auto object-contain h-122 w-64"/>
+            <div className = "text-center italic">{game.developer}</div>
+            <ContentText>
+                    {game.summary}
+            </ContentText>
+
+            <Footer 
+                    name1="previous game" 
+                    name2="next game" 
+                    href1 ={`/single-game/${+game.id -1}`}
+                    href2 ={`/single-game/${+game.id +1}`}
+                />
+            
+
+            </Page>
+        )
     }
-
-    return(
-        <Page>
-           <Hero name = {game.title}></Hero>
-           <Image 
-                src = {game.picture} 
-                width = {250} 
-                height = {250} 
-                className = "container mx-auto object-contain h-122 w-64"/>
-           <div className = "text-center italic">{game.developer}</div>
-           <ContentText>
-                {game.summary}
-           </ContentText>
-
-           <Footer 
-                name1="previous game" 
-                name2="next game" 
-                href1 ={`/single-game/${+game.id -1}`}
-                href2 ={`/single-game/${+game.id +1}`}
-            />
-           
-
-        </Page>
-    )
 }
