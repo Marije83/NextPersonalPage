@@ -9,9 +9,10 @@ export default function SkillsGrid(props){
                 <SubHeader subHeader = "Technical Skills"></SubHeader>
                 
                 <div>
-                    {techSkills.map((skill) => {
+                    {techSkills.map((skill, index) => {
                         return (
                             <SkillsItem 
+                                key = {index}
                                 skillName = {skill.skillName}
                                 skillDescription = {skill.skillDescription}
                             ></SkillsItem>
@@ -22,9 +23,10 @@ export default function SkillsGrid(props){
                 <SubHeader subHeader = "Transferable Skills"></SubHeader>
                 
                 <div>
-                    {transSkills.map((skill) => {
+                    {transSkills.map((skill, index) => {
                         return (
                             <SkillsItem 
+                                key = {index}
                                 skillName = {skill.skillName}
                                 skillDescription = {skill.skillDescription}
                             ></SkillsItem>
