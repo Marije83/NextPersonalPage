@@ -7,7 +7,7 @@ export default function Input({placeholder, value, onChange}) {
     
     return(
         <input 
-            className = "bg-gray-200 py-3 px-6 w-full rounded"
+            className = "bg-gray-200 py-3 px-6 w-full sm: w-96 rounded"
             placeholder = {placeholder}
             value = {value}
             onChange = {handleChange}
