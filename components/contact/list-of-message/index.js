@@ -1,20 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function ListOfMessages() {
-    const [messages, setMessages] = useState([]);
-    const [isLoading, setIsLoading] = useState ([true]);
+export default function ListOfMessages({isLoading, messages}) {
 
-    useEffect(() => {
-        getMessages();
-    }, []);
-
-    const getMessages = async () => {
-        const response = await fetch(`/api/contact-messages`);
-        const data = await response.json();
-        const {messages} = data;
-        setMessages(messages);
-        setIsLoading(false);
-    }
     
     if (isLoading){
         return(

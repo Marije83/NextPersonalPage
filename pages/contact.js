@@ -2,7 +2,7 @@ import ContentText from "@/components/shared/content-text";
 import Hero from "@/components/shared/hero";
 import NavigationBar from "@/components/shared/navigation-bar";
 import Pages from "@/components/shared/page";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "@/components/forms/input";
 import ListOfMessages from "@/components/contact/list-of-message";
 
@@ -11,6 +11,20 @@ export default function Contact(){
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [showSuccess, setShowSuccess] = useState(false)
+    const [messages, setMessages] = useState([]);
+    const [isLoading, setIsLoading] = useState ([true]);
+
+    useEffect(() => {
+        getMessages();
+    }, []);
+
+    const getMessages = async () => {
+        const response = await fetch(`/api/contact-messages`);
+        const data = await response.json();
+        const {messages} = data;
+        setMessages(messages);
+        setIsLoading(false);
+    }
 
     const handleChangeMessage = (event) => {
         const message = event.target.value;
@@ -30,6 +44,7 @@ export default function Contact(){
             setEmail("");
             setMessage("");
             setShowSuccess(true);
+            getMessages();
     }
 
     return(
@@ -60,7 +75,7 @@ export default function Contact(){
 
             </form>
 
-            <ListOfMessages/>
+            <ListOfMessages isLoading={isLoading} messages={messages}/>
         </Pages>
         
     )
