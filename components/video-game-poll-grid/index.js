@@ -3,19 +3,23 @@ import { useEffect, useState } from "react"
 import Image from "next/image";
 
 export default function GamePoll () {
-    const [title, setTitle] = useState("");
-    const [developer, setDeveloper] = useState("");
     const [games, setGames] = useState([]);
+    const [title, setTitle] = useState ("");
+    const [developer, setDeveloper] = useState ("");
     const [mostLikedGameLikes, setMostLikedGameLikes] = useState(0);
     const [mostLikedGameTitle, setMostLikedGameTitle] = useState ("The Last of Us");
     
     //this function will run once at the start and fetches data from a path, stores it as a json file in data, and then returns it as a response.
     useEffect(() => {
-        fetch("/api/games")
-            .then(data => data.json())
-            .then(response => setGames(response));
+        getGames();
     }, [])
 
+   const getGames = async () => {
+    const response = await fetch(`/api/games`);
+    const data = await response.json();
+    setGames(data);
+   }
+   
     const handleLike = (details) =>{
         const {title, likes} = details;
 
@@ -50,14 +54,12 @@ export default function GamePoll () {
         <div>
             <div
             className = "grid grid-cols-4 shrink gap-y-10 text-center bg-slate-100 m-5 p-3">
-           {games.map((game) => {
+           {games.map((game, index) => {
                 return (
                     <GameItem 
-                        title = {game.title}
-                        picture = {game.picture}
-                        developer = {game.developer}
-                        onLike = {handleLike}
-                    ></GameItem>
+                        key={index}
+                        game={game}
+                    />
                 )
             })}
             </div>
