@@ -15,6 +15,10 @@ export default function Contact(){
         setMessage(message);
     }
 
+    const handleSubmit = async () => {
+        const response = await fetch (`/api/contact`)
+    }
+
     return(
         <Pages>
             <NavigationBar/>
@@ -25,13 +29,21 @@ export default function Contact(){
             
             <form className = "flex flex-col space-y-3 px-4">
                 <Input placeholder = "Name" value = {name} onChange = {(value) => {setName(value)}}/>
+                
                 <Input placeholder = "Email" value = {email} onChange = {(value)=>{setEmail(value)}}/> 
+                
                 <textarea
                     className = "bg-gray-200 w-full sm:w-96 rounded h-64 py-3 px-6"
                     placeholder = "message"
                     value = {message}
                     onChange = {handleChangeMessage}
                 />
+
+                <button
+                    className = ""
+                    onClick = {handleSubmit}
+                    type = "button"
+                > Submit</button>
 
             </form>
         </Pages>
