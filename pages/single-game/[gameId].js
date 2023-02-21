@@ -1,6 +1,7 @@
 import ContentText from "@/components/shared/content-text";
 import Footer from "@/components/shared/footer";
 import Hero from "@/components/shared/hero";
+import NavigationBar from "@/components/shared/navigation-bar";
 import Page from "@/components/shared/page";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -38,13 +39,17 @@ export default function SingleGame(){
     } else {
         return(
             <Page>
+               <NavigationBar/>
+
                 <Hero name = {game.title}></Hero>
+               
                 <Image 
                         src = {game.picture} 
                         width = {250} 
                         height = {250} 
                         className = "container mx-auto object-contain h-122 w-64"/>
                 <div className = "text-center italic">{game.developer}</div>
+               
                 <ContentText>
                         {game.summary}
                 </ContentText>
