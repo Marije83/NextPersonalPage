@@ -14,6 +14,9 @@ export default async function handler(req, res){
     }
 
     const foundGame = games[0];
+
+    res.json({game: foundGame});
+}
       
     // const games = [
     //     {
@@ -57,5 +60,3 @@ export default async function handler(req, res){
     //         return false // if not, it will go again until it finds true.
     //     }
     // })
-    res.json({game: foundGame});
-}

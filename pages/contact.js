@@ -40,7 +40,7 @@ export default function Contact(){
                 />
 
                 <button
-                    className = ""
+                    className = "bg-purple-500 text-white py-3 px-6 w-full sm:w-96 rounded"
                     onClick = {handleSubmit}
                     type = "button"
                 > Submit</button>
