@@ -4,19 +4,32 @@ import NavigationBar from "@/components/shared/navigation-bar";
 import Pages from "@/components/shared/page";
 import { useState } from "react";
 import Input from "@/components/forms/input";
+import ListOfMessages from "@/components/contact/list-of-message";
 
 export default function Contact(){
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false)
 
     const handleChangeMessage = (event) => {
         const message = event.target.value;
         setMessage(message);
     }
 
-    const handleSubmit = async () => {
-        const response = await fetch (`/api/contact`)
+    const handleSubmit = async (event) => {
+        
+        if (!name) return;
+        if (!email) return;
+        if (!message) return;
+        
+        const response = await fetch (`/api/contact?name=${name}&email=${email}&message=${message}`);
+        const data = await response.json();
+
+            setName("");
+            setEmail("");
+            setMessage("");
+            setShowSuccess(true);
     }
 
     return(
@@ -46,6 +59,8 @@ export default function Contact(){
                 > Submit</button>
 
             </form>
+
+            <ListOfMessages/>
         </Pages>
         
     )
