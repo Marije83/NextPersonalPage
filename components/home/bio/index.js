@@ -9,16 +9,17 @@ export default function Bio(props) {
             </div>
                  
             <div
-                className = "flex flex-cols mt-5">
-            
-                <Image 
-                    src='/profilePic.jpg' 
-                    alt="Headshot" 
-                    width="150" height ="300" 
-                    className = "rounded-full ml-5"
-                />
+                className = "mt-5 md:flex md:flex-cols">
+                <div className = "grid justify-center mb-6 md:w-4/12">
+                    <Image 
+                        src='/profilePic.jpg' 
+                        alt="Headshot" 
+                        width="200" height ="400" 
+                        className = "rounded-full ml-5"
+                    />
+                    </div>
                 <div
-                    className = "text-m text-justify px-7"
+                    className = "text-m text-justify px-7  md:w-8/12"
                     >{props.message}
                 </div>
             </div>  
