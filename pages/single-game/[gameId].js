@@ -45,6 +45,7 @@ export default function SingleGame(){
                
                 <Image 
                         src = {game.picture} 
+                        alt = {game.title}
                         width = {250} 
                         height = {250} 
                         className = "container mx-auto object-contain h-122 w-64"/>

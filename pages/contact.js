@@ -53,9 +53,9 @@ export default function Contact(){
         
             <Hero name="Contact me"/>
 
-            <ContentText>If you would like to get in touch, fill out the form below. And when you type in your email, I will try to get back to you.</ContentText>
+            <div className="text-sm p-3 m-5 md:text-center">If you would like to get in touch, fill out the form below. And when you type in your email, I will try to get back to you.</div>
             
-            <form className = "flex flex-col space-y-3 px-4">
+            <form className = "grid justify-items-center space-y-3 px-4">
                 <Input placeholder = "Name" value = {name} onChange = {(value) => {setName(value)}}/>
                 
                 <Input placeholder = "Email" value = {email} onChange = {(value)=>{setEmail(value)}}/> 
