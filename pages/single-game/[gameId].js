@@ -27,8 +27,6 @@ export default function SingleGame(){
     
     console.log(game);
 
-
-
     if (gameId < 1){
         return(
         <div className = "text-center mt-12">There are no previous items to display. Please click the return button on your browser</div>)
@@ -62,6 +60,7 @@ export default function SingleGame(){
                 </div>
                 
                 <Footer 
+                        gameId={gameId}
                         name1="previous game" 
                         name2="next game" 
                         href1 ={`/single-game/${+game.id -1}`}
