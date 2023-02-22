@@ -1,14 +1,12 @@
 import GameItem from "./game-item";
 import { useEffect, useState } from "react"
-import Image from "next/image";
 
 export default function GamePoll () {
     const [games, setGames] = useState([]);
     const [title, setTitle] = useState ("");
     const [developer, setDeveloper] = useState ("");
     const [showSuccess, setShowSuccess] = useState(false);
-    const [mostLikedGameLikes, setMostLikedGameLikes] = useState(0);
-    const [mostLikedGameTitle, setMostLikedGameTitle] = useState ("The Last of Us");
+    
     
     //this function will run once at the start and fetches data from a path, stores it as a json file in data, and then returns it as a response.
     useEffect(() => {
@@ -20,15 +18,7 @@ export default function GamePoll () {
     const data = await response.json();
     setGames(data);
    }
-   
-    const handleLike = (details) =>{
-        const {title, likes} = details;
 
-        if (likes > mostLikedGameLikes){
-            setMostLikedGameTitle(title);
-            setMostLikedGameLikes(likes)
-        }
-    }
 
     const handleAddGame = async (event) => {
         let payload = {
@@ -79,12 +69,7 @@ export default function GamePoll () {
                         onClick = {handleAddGame}
                         >Add Game</button>
                 </form>
-            </div>  
-
-            <div className="mt-10 my-5 text-center">
-                <em>{mostLikedGameTitle}</em> is the most liked Game
-            </div>          
+            </div> 
         </div>
-        
     )
 }
