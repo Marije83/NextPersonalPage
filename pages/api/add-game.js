@@ -2,6 +2,7 @@ import sql from "@/utils/postgres";
 
 export default async function handler(req, res) {
     const { title, developer } = req.body;
+    
     const response = await sql`
         insert into games
             (title, developer)
@@ -9,5 +10,5 @@ export default async function handler(req, res) {
             (${title}, ${developer})
     `;
 
-    res.json({message: "success"})
+    res.json({message: "Success"});
 }

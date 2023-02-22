@@ -30,19 +30,19 @@ export default function GamePoll () {
         }
     }
 
-    const handleAddGame = async (event) =>{
+    const handleAddGame = async (event) => {
         let payload = {
             title: title,
             developer: developer
         };
         
-        const response = await fetch (`api/add-game`, {
+        const response = await fetch(`api/add-game`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(payload)
-        })
+        });
         
         const data = await response.json();
 
@@ -67,11 +67,11 @@ export default function GamePoll () {
                 <form className = "m-5 grid grid-row md:flex flex-cols-2 md: gap-4 md:justify-around">
                     <input placeholder="title" className = "pl-5 border rounded h-10 w-full md:w-2/5 border-purple-900 hover:bg-purple-100"
                     value = {title}
-                    onChange = {(value) => {setTitle(value)}}/>
+                    onChange = {(value) => setTitle(value)}/>
                     
                     <input placeholder="developer" className = "pl-5 border h-10 w-full md:w-2/5 rounded border-purple-900 hover:bg-purple-100"
                     value = {developer}
-                    onChange = {(value)=>{setDeveloper(value)}}/>
+                    onChange = {(value) => setDeveloper(value)}/>
                     
                     <button
                         className = "bg-purple-900 text-white text-center px-3 w-full md:w-1/5 h-10 rounded"
