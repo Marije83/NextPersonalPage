@@ -10,7 +10,7 @@ export default function Footer({name1, name2, href1, href2, gameId}){
                 </Link>
             </div>
         )
-    } else if (gameId==4) {
+    } else if (gameId==5) {
         return(
             <div className="p-5 m-3 text-purple-900 font-medium">
                 <Link href={href1}>

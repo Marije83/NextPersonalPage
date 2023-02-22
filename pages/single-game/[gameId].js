@@ -55,7 +55,7 @@ export default function SingleGame(){
 
                 <div className = "flex justify-center">
                     <button className="bg-purple-700 p-2 rounded text-white justify-center">
-                        <a href={game.linkToPurchase} target = "_blank">Buy on Amazon</a>
+                        <a href={game.linktopurchase} target = "_blank">Buy on Amazon</a>
                     </button>
                 </div>
                 
