@@ -6,6 +6,7 @@ export default function GamePoll () {
     const [games, setGames] = useState([]);
     const [title, setTitle] = useState ("");
     const [developer, setDeveloper] = useState ("");
+    const [showSuccess, setShowSuccess] = useState(false);
     const [mostLikedGameLikes, setMostLikedGameLikes] = useState(0);
     const [mostLikedGameTitle, setMostLikedGameTitle] = useState ("The Last of Us");
     
@@ -29,25 +30,22 @@ export default function GamePoll () {
         }
     }
 
-    const handleSetTitle = (event) => {
-        let title = event.target.value;
-        setTitle(title);
-    }
-
-    const handleSetDeveloper = (event) => {
-        let developer = event.target.value;
-        setDeveloper(developer);
-    }
-
-    const handleAddGame = () =>{
-        let game = {
+    const handleAddGame = async (event) =>{
+        let payload = {
             title: title,
-            picture: <Image src='TBC.png' alt="Image to follow" />,
             developer: developer
-        }
+        };
         
-        let newGames = [...games, game]
-        setGames(newGames)
+        const response = await fetch (`api/add-game`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        })
+        
+        const data = await response.json();
+
     }
 
     return(
@@ -69,11 +67,11 @@ export default function GamePoll () {
                 <form className = "m-5 grid grid-row md:flex flex-cols-2 md: gap-4 md:justify-around">
                     <input placeholder="title" className = "pl-5 border rounded h-10 w-full md:w-2/5 border-purple-900 hover:bg-purple-100"
                     value = {title}
-                    onChange = {handleSetTitle}/>
+                    onChange = {(value) => {setTitle(value)}}/>
                     
                     <input placeholder="developer" className = "pl-5 border h-10 w-full md:w-2/5 rounded border-purple-900 hover:bg-purple-100"
                     value = {developer}
-                    onChange = {handleSetDeveloper}/>
+                    onChange = {(value)=>{setDeveloper(value)}}/>
                     
                     <button
                         className = "bg-purple-900 text-white text-center px-3 w-full md:w-1/5 h-10 rounded"
