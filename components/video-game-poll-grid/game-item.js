@@ -1,20 +1,17 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function GameItem ({game}) {
-   const [likes, setLikes] = useState(0);
+export default function GameItem ({ game }) {
+   const [likes, setLikes] = useState(+game.likes);
 
-   const handleIncrementLike = () => {
-        let newValue = likes + 1;    
-        let details = {
-            title: title,
-            developer: developer,
-            likes: newValue
-        }    
+    const handleLike = async () => {
+        let newLikes = likes + 1;
+        setLikes(newLikes);
 
-        onLike(details);
-        setLikes(newValue);
-   }
+        const id = +game.id;
+        const response = await fetch(`/api/increase-likes?id=${id}&likes=${newLikes}`);
+        const data = await response.json();
+    }
 
     return(
         <div>
@@ -25,7 +22,7 @@ export default function GameItem ({game}) {
             <div className = "italic">{game.developer}</div>
             <button
                 className= "bg-purple-900 text-white px-3 mt-3 rounded"
-                onClick = {handleIncrementLike}
+                onClick = {handleLike}
             >Like</button>
             <div>{likes} likes</div>
         </div>
