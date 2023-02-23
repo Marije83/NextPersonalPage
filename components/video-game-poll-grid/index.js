@@ -41,7 +41,7 @@ export default function GamePoll () {
     return(
         <div>
             <div
-            className = "grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 shrink gap-y-10 gap-4 text-center m-5 p-3">
+            className = "grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 shrink gap-y-4 gap-4 text-center m-2 p-3">
            {games.map((game, index) => {
                 return (
                     <GameItem 
