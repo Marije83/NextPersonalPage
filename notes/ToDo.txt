@@ -1,0 +1,2 @@
+Contact page:
+- either remove disaply of messages or add option to message privately
