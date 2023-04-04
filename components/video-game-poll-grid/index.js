@@ -1,5 +1,6 @@
 import GameItem from "./game-item";
 import { useEffect, useState } from "react"
+import Input from "../forms/input";
 
 export default function GamePoll () {
     const [games, setGames] = useState([]);
@@ -36,6 +37,8 @@ export default function GamePoll () {
         
         const data = await response.json();
 
+        getGames();
+
     }
 
     return(
@@ -55,11 +58,11 @@ export default function GamePoll () {
             <div className = "text-center">
                 <p>Or you can add your own favourite game here!</p>
                 <form className = "m-5 grid grid-row md:flex flex-cols-2 md: gap-4 md:justify-around">
-                    <input placeholder="title" className = "pl-5 border rounded h-10 w-full md:w-2/5 border-purple-900 hover:bg-purple-100"
+                    <Input placeholder="title" className = "pl-5 border rounded h-10 w-full md:w-2/5 border-purple-900 hover:bg-purple-100"
                     value = {title}
                     onChange = {(value) => setTitle(value)}/>
                     
-                    <input placeholder="developer" className = "pl-5 border h-10 w-full md:w-2/5 rounded border-purple-900 hover:bg-purple-100"
+                    <Input placeholder="developer" className = "pl-5 border h-10 w-full md:w-2/5 rounded border-purple-900 hover:bg-purple-100"
                     value = {developer}
                     onChange = {(value) => setDeveloper(value)}/>
                     
