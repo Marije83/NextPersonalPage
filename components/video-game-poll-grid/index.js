@@ -38,6 +38,8 @@ export default function GamePoll () {
         const data = await response.json();
 
         getGames();
+        setTitle("");
+        setDeveloper("");
 
     }
 
