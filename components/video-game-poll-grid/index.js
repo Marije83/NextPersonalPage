@@ -6,7 +6,6 @@ export default function GamePoll () {
     const [games, setGames] = useState([]);
     const [title, setTitle] = useState ("");
     const [developer, setDeveloper] = useState ("");
-    const [showSuccess, setShowSuccess] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     
     
