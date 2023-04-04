@@ -5,6 +5,7 @@ import Page from "@/components/shared/page"
 import ContentText from "@/components/shared/content-text"
 
 export default function () {
+    
     return(
 
         <Page>
