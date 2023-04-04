@@ -1,2 +1,14 @@
 Contact page:
 - either remove disaply of messages or add option to message privately
+
+The linguist page:
+- Add page
+- Add downloadable version of threatening notices (check for copyright to see if you need to only do the ones you transcribed yourself)
+- Add downloadable version of pauper letters corpus
+- Add links to project pages
+- Add downloadable versions of publications
+
+The Software Engineer page:
+- add badges and certificates of things I've completed and of projects I worked on
+
+The gamer page:
