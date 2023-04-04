@@ -1,31 +1,28 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function GameItem ({game}) {
-   const [likes, setLikes] = useState(0);
+export default function GameItem ({ game }) {
+   const [likes, setLikes] = useState(+game.likes);
 
-   const handleIncrementLike = () => {
-        let newValue = likes + 1;    
-        let details = {
-            title: title,
-            developer: developer,
-            likes: newValue
-        }    
+    const handleLike = async () => {
+        let newLikes = likes + 1;
+        setLikes(newLikes);
 
-        onLike(details);
-        setLikes(newValue);
-   }
+        const id = +game.id;
+        const response = await fetch(`/api/increase-likes?id=${id}&likes=${newLikes}`);
+        const data = await response.json();
+    }
 
     return(
-        <div>
-            <Link href={`/single-game/${game.id}`} className = "font-bold">{game.title}</Link>
-            <div className= "grid justify-center h-52 items-center">    
+        <div className = "border rounded-lg bg-slate-100 py-2">
+            <Link href={`/single-game/${game.id}`} className = "font-bold ">{game.title}</Link>
+            <div className= "grid justify-center items-center py-3">    
                 {game.picture ? (<img src={game.picture} alt="The Last of Us" width="150" height ="300"/>): (<img src="/assets/TBC.png" alt="TBC" width="150" height ="300"/>)}
             </div>
             <div className = "italic">{game.developer}</div>
             <button
                 className= "bg-purple-900 text-white px-3 mt-3 rounded"
-                onClick = {handleIncrementLike}
+                onClick = {handleLike}
             >Like</button>
             <div>{likes} likes</div>
         </div>

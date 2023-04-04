@@ -2,7 +2,7 @@ import SubHeader from "@/components/shared/subheader";
 import { techSkills,transSkills } from "@/constants/home/skills";
 import SkillsItem from "./skills-item";
 
-export default function SkillsGrid(props){
+export default function SkillsGrid(){
     return(
         <div>
             <div>
@@ -17,7 +17,7 @@ export default function SkillsGrid(props){
                                 skillDescription = {skill.skillDescription}
                             ></SkillsItem>
                         )
-                    })}
+                        })}
                 </div>
                 
                 <SubHeader subHeader = "Transferable Skills"></SubHeader>
