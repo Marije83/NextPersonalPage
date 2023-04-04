@@ -1,2 +1,2 @@
-Vercel:
-- fix fetch from database
+Game page:
+- add loading spinner
